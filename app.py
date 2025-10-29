@@ -1,6 +1,6 @@
 from flask import Flask, request
+from markupsafe import escape # Для экранирования
 
-# Создаем объект приложения Flask
 app = Flask(__name__)
 
 # Главная страница
@@ -8,16 +8,15 @@ app = Flask(__name__)
 def hello():
     return '<h1>Привет! Это мой сервер!</h1> <a href="/search">Перейти к поиску</a>'
 
-# Страница поиска (уязвима к XSS)
+# Страница поиска
 @app.route('/search')
 def search():
-    # Получаем то, что пользователь ввел в строке ?query=...
-    user_query = request.args.get('query', '')  # Если параметра нет, будет пустая строка
+    user_query = request.args.get('query', '')
+    safe_query = escape(user_query) # Позволяет экранировать пользовательский ввод формы
 
-    # ОПАСНО: мы вставляем пользовательский ввод прямо в HTML без проверки!
     output = f"""
     <h2>Результаты поиска</h2>
-    <p>Вы искали: <b>{user_query}</b></p>
+    <p>Вы искали: <b>{safe_query}</b></p>
     <br>
     <form action="/search">
         <input type="text" name="query" placeholder="Введите запрос...">
@@ -26,6 +25,5 @@ def search():
     """
     return output
 
-# Запускаем сервер, если файл запущен напрямую
 if __name__ == '__main__':
     app.run(debug=True)
