@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Поиск - Умный Поиск{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('search.search') }}" method="get" class="search-form">
+    <input type="text" name="query" class="search-input" placeholder="Введите ваш поисковый запрос..." value="{{ query }}" required>
+    <button type="submit" class="search-btn">Найти</button>
+</form>
+
+{% if query %}
+<div class="results-container">
+    <div class="query-display">
+        <h3>Результаты поиска:</h3>
+        <p class="query-text">Вы искали: "{{ query }}"</p>
+        <p><small>Найдено результатов: 15 (заглушка)</small></p>
+    </div>
+    
+    <!-- Пример результатов поиска -->
+    <div class="result-item">
+        <a href="#" class="result-title">Добро пожаловать в Умный Поиск</a>
+        <p class="result-snippet">Это демонстрационная страница результатов поиска. Здесь будут отображаться реальные результаты из вашей базы данных.</p>
+        <div class="result-url">https://example.com/welcome</div>
+    </div>
+    
+    <div class="result-item">
+        <a href="#" class="result-title">Как работает поисковая система</a>
+        <p class="result-snippet">Поисковые системы используют сложные алгоритмы для индексации и ранжирования веб-страниц...</p>
+        <div class="result-url">https://example.com/how-search-works</div>
+    </div>
+</div>
+{% endif %}
+
+<div class="nav-links">
+    <a href="{{ url_for('main.home') }}" class="nav-link">Вернуться на главную</a>
+</div>
+{% endblock %}

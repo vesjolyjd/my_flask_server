@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Умный Поиск{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Умный Поиск</h1>
+            <p>Найдите именно то, что вам нужно</p>
+        </div>
+
+        <div class="search-container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🚀 Быстро</h3>
+                <p>Мгновенные результаты поиска</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Безопасно</h3>
+                <p>Ваши данные защищены</p>
+            </div>
+            <div class="feature-card">
+                <h3>💡 Умно</h3>
+                <p>Интеллектуальные алгоритмы</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

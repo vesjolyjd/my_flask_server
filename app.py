@@ -1,29 +1,22 @@
-from flask import Flask, request
-from markupsafe import escape # Для экранирования
+from flask import Flask, render_template
+import os
 
-app = Flask(__name__)
-
-# Главная страница
-@app.route('/')
-def hello():
-    return '<h1>Привет! Это мой сервер!</h1> <a href="/search">Перейти к поиску</a>'
-
-# Страница поиска
-@app.route('/search')
-def search():
-    user_query = request.args.get('query', '')
-    safe_query = escape(user_query) # Позволяет экранировать пользовательский ввод формы
-
-    output = f"""
-    <h2>Результаты поиска</h2>
-    <p>Вы искали: <b>{safe_query}</b></p>
-    <br>
-    <form action="/search">
-        <input type="text" name="query" placeholder="Введите запрос...">
-        <button type="submit">Искать снова</button>
-    </form>
-    """
-    return output
+def create_app():
+    app = Flask(__name__, 
+                template_folder='templates',
+                static_folder='static')
+    
+    app.config.from_pyfile('config.py')
+    
+    # Регистрация маршрутов
+    from routes.main_routes import main_bp
+    from routes.search_routes import search_bp
+    
+    app.register_blueprint(main_bp)
+    app.register_blueprint(search_bp)
+    
+    return app
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app = create_app()
+    app.run(debug=app.config['DEBUG'])

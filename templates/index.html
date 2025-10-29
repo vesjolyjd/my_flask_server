@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - Умный Поиск{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2 style="color: #333; margin-bottom: 30px;">Добро пожаловать в поисковую систему</h2>
+    <p style="color: #666; margin-bottom: 30px; line-height: 1.6;">
+        Начните поиск прямо сейчас. Введите ваш запрос в поле ниже и найдите нужную информацию среди миллионов документов.
+    </p>
+    
+    <form action="/search" method="get" class="search-form">
+        <input type="text" name="query" class="search-input" placeholder="Введите ваш поисковый запрос..." required>
+        <button type="submit" class="search-btn">Найти</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="/search" class="nav-link">Расширенный поиск</a>
+        <a href="/about" class="nav-link">О проекте</a>
+    </div>
+</div>
+{% endblock %}
