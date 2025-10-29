@@ -3,8 +3,8 @@ My server begin here!
   
 	
 ### Структура
-
->my_flask_server/
+```text
+my_flask_server/
 │
 ├── app.py                 # Главный файл приложения
 ├── config.py              # Конфигурация
@@ -27,7 +27,7 @@ My server begin here!
     ├── __init__.py
     ├── main_routes.py
     └── search_routes.py
-  
+``` 
 
 ### Кто за что отвечает?
 
