@@ -1,14 +1,16 @@
+import os
+
 # Базовые настройки
 DEBUG = True
-SECRET_KEY = '12345678'
+SECRET_KEY = 'dev-secret-key-change-in-production'
 
-# Настройки для будущей базы данных
-DATABASE_CONFIG = {
-    'host': 'localhost',
-    'database': 'search_app',
-    'user': 'username',
-    'password': 'password'
-}
+# Настройки базы данных
+basedir = os.path.abspath(os.path.dirname(__file__))
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+# Настройки аутентификации
+WTF_CSRF_ENABLED = True
 
 # Настройки поиска
 SEARCH_CONFIG = {
