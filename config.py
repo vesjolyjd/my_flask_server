@@ -1,5 +1,3 @@
-import os
-
 # Базовые настройки
 DEBUG = True
 SECRET_KEY = '12345678'

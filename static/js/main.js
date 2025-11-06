@@ -1,7 +1,7 @@
 // Основные JavaScript функции для поискового приложения
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Анимация появления элементов
+    // Анимация появления элементов (подпрыжка)
     const animateElements = document.querySelectorAll('.feature-card, .search-container');
     
     animateElements.forEach((element, index) => {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Динамическая подсказка для поиска
     if (searchInput) {
-        const suggestions = ['программирование', 'python', 'веб-разработка', 'базы данных', 'искусственный интеллект'];
+        const suggestions = ['Переделкино', 'Город писателей', 'Балаха', 'Иностранка'];
         let currentSuggestion = 0;
         
         setInterval(() => {
@@ -72,15 +72,4 @@ function showLoading() {
             </div>
         `;
     }
-}
-
-// Функция для форматирования чисел (просмотры, результаты)
-function formatNumber(num) {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
-    }
-    if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'k';
-    }
-    return num.toString();
 }

@@ -4,9 +4,27 @@
     box-sizing: border-box;
 }
 
+:root {
+    --my-gradient:    radial-gradient(at 98.27451647915314% 5.181166833849393%,
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 1) 0%,
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 0) 100%),
+                        radial-gradient(at 91.34823280336333% 12.088968818776824%,
+                                    hsla(148.02919708029196, 70.9844559585492%, 62.15686274509804%, 1) 0%, 
+                                    hsla(148.02919708029196, 70.9844559585492%, 62.15686274509804%, 0) 100%), 
+                        radial-gradient(at 38.48289394531351% 56.17747636147975%, 
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 1) 0%,
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 0) 100%), 
+                        radial-gradient(at 43.35973168355123% 95.78405056799612%, 
+                                    hsla(148.02919708029196, 70.9844559585492%, 62.15686274509804%, 1) 0%, 
+                                    hsla(148.02919708029196, 70.9844559585492%, 62.15686274509804%, 0) 100%), 
+                        radial-gradient(at 8.48141156190778% 94.57312803240052%, 
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 1) 0%, 
+                                    hsla(237.8102189781022, 70.9844559585492%, 62.15686274509804%, 0) 100%);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: var(--my-gradient);
     min-height: 100vh;
     padding: 20px;
 }
@@ -58,13 +76,13 @@ body {
 }
 
 .search-input:focus {
-    border-color: #667eea;
+    border-color: #5a6edb;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .search-btn {
     padding: 15px 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--my-gradient);
     color: white;
     border: none;
     border-radius: 50px;
@@ -88,17 +106,17 @@ body {
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #5a6edb;
 }
-
+/*
 .query-display h3 {
     color: #333;
     margin-bottom: 10px;
 }
-
+*/
 .query-text {
     font-size: 1.2rem;
-    color: #667eea;
+    color: #5a6edb;
     font-weight: 600;
 }
 
@@ -111,16 +129,17 @@ body {
 
 .nav-link {
     color: white;
+    background: var(--my-gradient);
     text-decoration: none;
     padding: 10px 20px;
-    border: 2px solid white;
+    font-style: Arial;
     border-radius: 25px;
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
     background: white;
-    color: #667eea;
+    color: #5a6edb;
 }
 
 .features {
@@ -149,7 +168,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--my-gradient);
 }
 
 .result-title {
@@ -160,7 +179,7 @@ body {
 }
 
 .result-title:hover {
-    color: #667eea;
+    color: var(--my-gradient);
 }
 
 .result-snippet {
