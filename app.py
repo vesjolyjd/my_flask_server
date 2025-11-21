@@ -24,10 +24,12 @@ def create_app():
     from routes.main_routes import main_bp
     from routes.search_routes import search_bp
     from routes.auth_routes import auth_bp
-    
+    from routes.friends_routes import friends_bp
+
     app.register_blueprint(main_bp)
     app.register_blueprint(search_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(friends_bp)    
 
     # Создание таблиц базы данных
     with app.app_context():
