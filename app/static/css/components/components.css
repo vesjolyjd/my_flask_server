@@ -1,0 +1,85 @@
+/* Стили для общих компонентов и форм */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .search-container {
+        padding: 20px;
+    }
+    
+    .nav-links, .nav-auth-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-card, .friend-card, .request-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .user-actions, .friend-actions, .request-actions {
+        justify-content: center;
+    }
+    
+    .user-info {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .alert {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .search-container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .friends-title {
+        font-size: 1.5rem;
+    }
+}

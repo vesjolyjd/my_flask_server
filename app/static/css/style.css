@@ -1,0 +1,9 @@
+/* Основные стили */
+@import url('components/base.css');
+@import url('components/auth.css');
+@import url('components/friends.css');
+@import url('components/search.css');
+@import url('components/layout.css');
+@import url('components/components.css');
+@import url('components/navigation.css');
+@import url('components/notifications.css');

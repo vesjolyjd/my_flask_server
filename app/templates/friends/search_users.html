@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Поиск пользователей{% endblock %}
+
+{% block content %}
+<div class="friends-container">
+    <h2 class="friends-title">🔍 Поиск пользователей</h2>
+    
+    <form method="GET" class="search-form">
+        <input type="text" name="query" class="search-input" 
+               placeholder="Введите имя пользователя..." 
+               value="{{ query }}">
+        <button type="submit" class="search-btn">Найти</button>
+    </form>
+
+    {% if query %}
+        <div class="search-results">
+            <h3 style="margin: 20px 0 10px 0; color: #333;">
+                Результаты поиска: "{{ query }}"
+            </h3>
+            
+            {% if users %}
+                <div class="users-list">
+                    {% for user in users %}
+                        <div class="user-card">
+                            <div class="user-info">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-details">
+                                    <h4 class="user-name">{{ user.username }}</h4>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                {% if current_user.is_friends_with(user) %}
+                                    <span class="friend-badge">✅ Друг</span>
+                                    <a href="{{ url_for('friends.remove_friend', friend_id=user.id) }}" 
+                                       class="btn btn-danger" 
+                                       onclick="return confirm('Удалить из друзей?')">
+                                        Удалить
+                                    </a>
+                                {% elif current_user.has_sent_request_to(user) %}
+                                    {% set sent_request = current_user.has_sent_request_to(user) %}
+                                    {% if sent_request %}
+                                        <span class="request-badge">⏳ Заявка отправлена</span>
+                                        <a href="{{ url_for('friends.cancel_friend_request', request_id=sent_request.id) }}" 
+                                           class="btn btn-warning">
+                                            Отменить
+                                        </a>
+                                    {% endif %}
+                                {% elif current_user.has_pending_request_from(user) %}
+                                    <span class="request-badge">📥 Есть входящая заявка</span>
+                                    <a href="{{ url_for('friends.friends_list') }}" class="btn btn-info">
+                                        Проверить
+                                    </a>
+                                {% else %}
+                                    <a href="{{ url_for('friends.send_friend_request', user_id=user.id) }}" 
+                                       class="btn btn-primary">
+                                        📨 Добавить в друзья
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-results">
+                    <p>Пользователи не найдены</p>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="friends-links">
+        <a href="{{ url_for('friends.friends_list') }}" class="nav-link">Мои друзья</a>
+        <a href="{{ url_for('main.home') }}" class="nav-link">На главную</a>
+    </div>
+</div>
+{% endblock %}

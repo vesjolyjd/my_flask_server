@@ -1,0 +1,143 @@
+/* Стили для системы друзей */
+.friends-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.friends-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Карточки пользователей */
+.user-card, .friend-card, .request-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #5a6edb;
+    transition: all 0.3s ease;
+}
+
+.user-card:hover, .friend-card:hover, .request-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.user-avatar {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--my-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.user-joined {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+/* Кнопки действий */
+.user-actions, .friend-actions, .request-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--my-gradient);
+    color: white;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-info {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Бейджи */
+.friend-badge, .request-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.friend-badge {
+    background: #d4edda;
+    color: #155724;
+}
+
+.request-badge {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Секции */
+.requests-section, .friends-section {
+    margin-bottom: 30px;
+}
+
+.friends-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}

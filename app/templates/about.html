@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}О проекте{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2 style="color: #333; margin-bottom: 20px;">О проекте</h2>
+    <div style="color: #666; line-height: 1.6; text-align: left;">
+        <p style="margin-bottom: 15px;">
+            <strong>Mind Roadmap</strong> - это современная умная карта, которая работает одновременно как карта и поисковая система, разработанная для быстрого и точного поиска мест.
+        </p>
+        <p style="margin-bottom: 15px;">
+            Актуальная миссия - сделать поиск мест, быстрым и эффективным для каждого пользователя.
+        </p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li>Мгновенный поиск по всем городам и даже странам</li>
+            <li>Интеллектуальные алгоритмы поиска</li>
+            <li>Защита персональных данных</li>
+            <li>Простой и интуитивно понятный интерфейс</li>
+        </ul>
+    </div>
+    
+    <div class="nav-links">
+        <a href="{{ url_for('main.home') }}" class="nav-link">На главную</a>
+        <a href="{{ url_for('search.search') }}" class="nav-link">Начать поиск</a>
+    </div>
+</div>
+{% endblock %}
