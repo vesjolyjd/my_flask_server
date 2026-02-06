@@ -78,7 +78,7 @@ class User(UserMixin, db.Model):
             receiver_id=self.id, 
             status='accepted'
         ).first()
-        return friendship1 or friendship2
+        return friendship1 is not None or friendship2 is not None
     
     def has_pending_request_from(self, user):
         from .friendship import Friendship
